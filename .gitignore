@@ -1,0 +1,17 @@
+# OS/editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+__pycache__/
+*.py[cod]
+
+# Local LinkRouter logs and computer-specific copies
+*.log
+*.bak
+config/linkrouter.local.json
+config/linkrouter.backup.json
+
+# Active/local LinkRouter config may contain machine-specific paths and IDs
+config/linkrouter.json

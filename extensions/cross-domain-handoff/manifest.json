@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "LinkRouter PWA Cross-Domain Handoff",
+  "version": "1.0.0",
+  "description": "A LinkRouter bridge: a PWA launches an in-scope URL with a marker, then this extension navigates that same web contents to the requested HTTP(S) URL.",
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["handoff.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ]
+}

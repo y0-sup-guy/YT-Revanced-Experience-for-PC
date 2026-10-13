@@ -1,0 +1,76 @@
+{
+  "global": {
+    "fallbackBrowserPath": "C:\\PATH\\TO\\CHROME\\Application\\chrome.exe",
+    "fallbackBrowserArgs": "\"{URL}\"",
+    "defaultConfigEditor": "C:\\WINDOWS\\system32\\notepad.exe",
+    "logPath": "",
+    "interactiveMode": false,
+    "supportedProtocols": [
+      "http",
+      "https",
+      "linkrouter-ext"
+    ]
+  },
+  "rules": [
+    {
+      "regex": "^https?://(www\\.)?youtube\\.com/shorts/([^/?#]+).*",
+      "program": "C:\\PATH\\TO\\CHROME\\Application\\chrome_proxy.exe",
+      "arguments": "--profile-directory=\"YOUR_CHROME_PROFILE_DIRECTORY\" --app-id=YOUR_YOUTUBE_PWA_APP_ID --app-launch-url-for-shortcuts-menu-item=\"https://www.youtube.com/shorts/$2\""
+    },
+    {
+      "regex": "^https?://m\\.youtube\\.com/shorts/([^/?#]+).*$",
+      "program": "C:\\PATH\\TO\\CHROME\\Application\\chrome_proxy.exe",
+      "arguments": "--profile-directory=\"YOUR_CHROME_PROFILE_DIRECTORY\" --app-id=YOUR_YOUTUBE_PWA_APP_ID --app-launch-url-for-shortcuts-menu-item=\"https://www.youtube.com/shorts/$1\""
+    },
+    {
+      "regex": "^https?://m\\.youtube\\.com(/.*)?$",
+      "program": "C:\\PATH\\TO\\CHROME\\Application\\chrome_proxy.exe",
+      "arguments": "--profile-directory=\"YOUR_CHROME_PROFILE_DIRECTORY\" --app-id=YOUR_YOUTUBE_PWA_APP_ID --app-launch-url-for-shortcuts-menu-item=\"https://www.youtube.com$1\""
+    },
+    {
+      "regex": "^https?://youtu\\.be/([^/?#]+).*$",
+      "program": "C:\\PATH\\TO\\CHROME\\Application\\chrome_proxy.exe",
+      "arguments": "--profile-directory=\"YOUR_CHROME_PROFILE_DIRECTORY\" --app-id=YOUR_YOUTUBE_PWA_APP_ID --app-launch-url-for-shortcuts-menu-item=\"https://www.youtube.com/watch?v=$1\""
+    },
+    {
+      "regex": "^https?://(www\\.)?youtube\\.com/post/([^/?#]+).*$",
+      "program": "C:\\PATH\\TO\\CHROME\\Application\\chrome_proxy.exe",
+      "arguments": "--profile-directory=\"YOUR_CHROME_PROFILE_DIRECTORY\" --app-id=YOUR_YOUTUBE_PWA_APP_ID --app-launch-url-for-shortcuts-menu-item=\"https://www.youtube.com/post/$2\""
+    },
+    {
+      "regex": "^https?://(www\\.)?youtube-nocookie\\.com/embed/([^/?#]+).*$",
+      "program": "C:\\PATH\\TO\\CHROME\\Application\\chrome_proxy.exe",
+      "arguments": "--profile-directory=\"YOUR_CHROME_PROFILE_DIRECTORY\" --app-id=YOUR_YOUTUBE_PWA_APP_ID --app-launch-url-for-shortcuts-menu-item=\"https://www.youtube.com/watch?v=$2\""
+    },
+    {
+      "regex": "^(https?://studio\\.youtube\\.com.*)$",
+      "program": "C:\\PATH\\TO\\CHROME\\Application\\chrome_proxy.exe",
+      "arguments": "--profile-directory=\"YOUR_CHROME_PROFILE_DIRECTORY\" --app-id=YOUR_YOUTUBE_PWA_APP_ID --app-launch-url-for-shortcuts-menu-item=\"https://www.youtube.com/?__lr_pwa_handoff=1#$1\""
+    },
+    {
+      "regex": "^(https?://yt\\.be/activate(?:[/?#].*)?)$",
+      "program": "C:\\PATH\\TO\\CHROME\\Application\\chrome_proxy.exe",
+      "arguments": "--profile-directory=\"YOUR_CHROME_PROFILE_DIRECTORY\" --app-id=YOUR_YOUTUBE_PWA_APP_ID --app-launch-url-for-shortcuts-menu-item=\"https://www.youtube.com/?__lr_pwa_handoff=1#$1\""
+    },
+    {
+      "regex": "^(https?://music\\.youtube\\.com(?:[/?#].*)?)$",
+      "program": "C:\\PATH\\TO\\CHROME\\Application\\chrome_proxy.exe",
+      "arguments": "--profile-directory=\"YOUR_CHROME_PROFILE_DIRECTORY\" --app-id=YOUR_YOUTUBE_PWA_APP_ID --app-launch-url-for-shortcuts-menu-item=\"https://www.youtube.com/?__lr_pwa_handoff=1#$1\""
+    },
+    {
+      "regex": "^https?://www\\.youtube\\.com([/?#].*)?$",
+      "program": "C:\\PATH\\TO\\CHROME\\Application\\chrome_proxy.exe",
+      "arguments": "--profile-directory=\"YOUR_CHROME_PROFILE_DIRECTORY\" --app-id=YOUR_YOUTUBE_PWA_APP_ID --app-launch-url-for-shortcuts-menu-item=\"{URL}\""
+    },
+    {
+      "regex": "^https?://youtube\\.com([/?#].*)?$",
+      "program": "C:\\PATH\\TO\\CHROME\\Application\\chrome_proxy.exe",
+      "arguments": "--profile-directory=\"YOUR_CHROME_PROFILE_DIRECTORY\" --app-id=YOUR_YOUTUBE_PWA_APP_ID --app-launch-url-for-shortcuts-menu-item=\"https://www.youtube.com$1\""
+    },
+    {
+      "regex": "^(https?://.*)$",
+      "program": "C:\\PATH\\TO\\CHROME\\Application\\chrome.exe",
+      "arguments": "$1"
+    }
+  ]
+}
