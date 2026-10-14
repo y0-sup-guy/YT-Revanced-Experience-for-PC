@@ -117,6 +117,32 @@ Saving `config/linkrouter-template.json` by itself does not necessarily change t
 - For Edge, Brave, or another Chromium-based browser, install YouTube as a web app in that browser first, find its shortcut's **Properties → Target**, and identify the browser executable, profile, and app ID or equivalent. Adapt the `program` paths **and** launch arguments to that browser's supported format. Do not assume Chrome's `chrome_proxy.exe`, `--app-id`, and `--app-launch-url-for-shortcuts-menu-item` arguments will work unchanged in another browser. Test all routes before using it as your main configuration.
 - The fallback rule opens other HTTP/HTTPS URLs in normal Chrome. If you want a different fallback browser, update `global.fallbackBrowserPath`, `global.fallbackBrowserArgs`, and the final rule as needed.
 
+## YouTube PWA Routing and Browser Handoff
+
+LinkRouter supports routing compatible YouTube URLs to the installed YouTube Progressive Web App (PWA). However, the result may depend on how the link is opened.
+
+### Opening Links from Other Applications
+
+When a supported YouTube link is opened from another application, LinkRouter can redirect it to the YouTube PWA according to the configured routing rules.
+
+### Handling Links Opened in the Browser
+
+Links opened while already browsing in Chrome may remain in the browser instead of automatically switching to the PWA. In these cases, the LinkRouter browser extension can be used to initiate the handoff to the YouTube PWA. This may be relevant for pages such as YouTube Studio.
+
+### Chrome Profile Configuration
+
+LinkRouter must use the Chrome profile in which the YouTube PWA is installed. The profile directory is specified by the `--profile-directory` argument in the PWA shortcut's target.
+
+The value varies between installations, so users should check their own shortcut properties rather than assuming that a particular profile directory, such as `Profile 1`, is always correct.
+
+### Troubleshooting
+
+If a link opens in a regular browser window instead of the YouTube PWA:
+
+1. Verify that the YouTube PWA is installed in the intended Chrome profile.
+2. Check the PWA shortcut's target to identify the correct profile directory.
+3. Confirm that the corresponding profile and app ID are configured in LinkRouter.
+4. If the link was opened from within Chrome, use the LinkRouter extension's handoff feature where necessary.
 ## 5. Test the routes
 
 Start with one example of each type: a normal YouTube URL, a Shorts link, a `youtu.be` link, a Community post, a mobile YouTube URL, an embedded YouTube link, a Studio URL, `yt.be/activate`, a YouTube Music URL, and an unrelated HTTPS link. Check that each one opens in the expected place. If something goes wrong, restore your backup and check [`docs/troubleshooting.md`](docs/troubleshooting.md).
